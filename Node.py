@@ -2,16 +2,20 @@
 - Display the game stage 
 '''
 import numpy as np
-
+from  heuristic_function import Heuristic
 
 
 class Node : 
 
     # init 
-    def __init__(self, board: np.array, zero_poss: tuple) : 
+    def __init__(self, board: np.array, zero_poss: tuple,  previous_stage: tuple, is_manhattan: bool) : 
         self.board = board
         self.zero_poss = zero_poss
-        self.previous_stage = None
+        self.previous_stage = previous_stage
+        if is_manhattan :
+            self.h_value = Heuristic.manhattan_distance(board)
+        else : 
+            self.h_value = Heuristic.the_number_of_misstitle(board)
 
     # check winning stage 
     def is_Win(self) : 
@@ -21,6 +25,9 @@ class Node :
 
         return True 
     
+    def __lt__(self, other): 
+        return other.h_value > self.h_value
+         
     # this function connect to search algorithm module to find solution 
     def solve(self, search_algo: str) : 
         pass

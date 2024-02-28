@@ -10,6 +10,7 @@ DOWN = (0, 1)
 LEFT = (-1, 0)
 RIGHT = (1, 0)
 
+DIRECTION = [UP, DOWN, LEFT, RIGHT]
 class Move:
 
     def move(self, stage: np.array, swap: tuple, zeros_pos = (-1, -1)):
