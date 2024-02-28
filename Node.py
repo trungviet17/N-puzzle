@@ -5,6 +5,7 @@ import numpy as np
 from  heuristic_function import Heuristic
 
 
+
 class Node : 
 
     # init 
@@ -12,6 +13,7 @@ class Node :
         self.board = board
         self.zero_poss = zero_poss
         self.previous_stage = previous_stage
+        self.is_man = is_manhattan
         if is_manhattan :
             self.h_value = Heuristic.manhattan_distance(board)
         else : 
@@ -28,9 +30,8 @@ class Node :
     def __lt__(self, other): 
         return other.h_value > self.h_value
          
-    # this function connect to search algorithm module to find solution 
-    def solve(self, search_algo: str) : 
-        pass
+     
+    
 
 
         

@@ -3,3 +3,14 @@
 -   Display stage of game
 
 '''
+from Node import Node 
+from Search_Algorithm import Search_Algorithm
+from move import move, find_poss
+import numpy as np 
+
+board = np.random.permutation(9).reshape((3, 3))
+zero_poss = find_poss.find_poss(board, 0)
+first_Node = Node(board= board, zero_poss= zero_poss, previous_stage= (-1, -1), is_manhattan= True )
+
+_, step = Search_Algorithm(first_Node).greedysearch(True)
+

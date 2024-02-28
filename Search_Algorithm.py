@@ -7,10 +7,10 @@
 '''
 from Node import Node
 import numpy as np
-from collections import deque, defaultdict
-from move import Move, UP, LEFT, RIGHT, DOWN, DIRECTION
+from collections import deque
+from move import UP, LEFT, RIGHT, DOWN, DIRECTION, move
 import heapq
-from heuristic_function import Heuristic
+
 
 class Search_Algorithm : 
     def __init__(self, stage :Node) :
@@ -29,7 +29,7 @@ class Search_Algorithm :
                 for i in range(4) : 
                     dir = DIRECTION[i]
 
-                    sub = Move.move(stage= front.broad, swap = dir, zeros_pos= front.zero_poss)
+                    sub = move(stage= front.broad, swap = dir, zeros_pos= front.zero_poss)
                     if sub == None : continue 
 
                     new_node = Node(sub, (front.zero_poss[0] + dir[0], front.zero_poss[1] + dir[1]), previous_stage= dir, is_manhattan= True)
@@ -55,7 +55,7 @@ class Search_Algorithm :
                 for i in range(4) : 
                     dir = DIRECTION[i]
 
-                    sub = Move.move(stage = front.board, swap = dir, zeros_pos= front.zero_poss)
+                    sub = move(stage = front.board, swap = dir, zeros_pos= front.zero_poss)
                     if sub == None : continue 
 
                     new_node = Node(sub, (front.zero_poss[0] + dir[0], front.zero_poss[1] + dir[1]), previous_stage= dir, is_manhattan =is_manhattan )
