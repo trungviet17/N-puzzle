@@ -15,9 +15,9 @@ class Node :
         self.previous_stage = previous_stage
         self.is_man = is_manhattan
         if is_manhattan :
-            self.h_value = Heuristic.manhattan_distance(board)
+            self.h_value = Heuristic.manhattan_distance(board =board)
         else : 
-            self.h_value = Heuristic.the_number_of_misstitle(board)
+            self.h_value = Heuristic.the_number_of_misstitle(board= board)
 
     # check winning stage 
     def is_Win(self) : 

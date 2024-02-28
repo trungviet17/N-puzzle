@@ -6,7 +6,7 @@
 import numpy as np
 class Heuristic: 
 
-    def the_number_of_misstitle(self, board: np.array): 
+    def the_number_of_misstitle( board: np.array): 
         res = 0 
 
         for i in range(board.shape[0]) :
@@ -16,7 +16,7 @@ class Heuristic:
         return res
 
 
-    def manhattan_distance(self, board): 
+    def manhattan_distance( board): 
         res = 0 
 
         for i in range(board.shape[0]): 

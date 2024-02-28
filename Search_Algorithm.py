@@ -29,8 +29,8 @@ class Search_Algorithm :
                 for i in range(4) : 
                     dir = DIRECTION[i]
 
-                    sub = move(stage= front.broad, swap = dir, zeros_pos= front.zero_poss)
-                    if sub == None : continue 
+                    sub = move(stage= front.board, swap = dir, zeros_pos= front.zero_poss)
+                    if sub is None : continue 
 
                     new_node = Node(sub, (front.zero_poss[0] + dir[0], front.zero_poss[1] + dir[1]), previous_stage= dir, is_manhattan= True)
 
@@ -50,13 +50,13 @@ class Search_Algorithm :
             for _ in range(sz): 
                 front = heapq.heappop(q)
 
-                if front.is_Win : return (res, front)
+                if front.is_Win() : return (res, front)
 
                 for i in range(4) : 
                     dir = DIRECTION[i]
 
                     sub = move(stage = front.board, swap = dir, zeros_pos= front.zero_poss)
-                    if sub == None : continue 
+                    if sub is None : continue 
 
                     new_node = Node(sub, (front.zero_poss[0] + dir[0], front.zero_poss[1] + dir[1]), previous_stage= dir, is_manhattan =is_manhattan )
 
